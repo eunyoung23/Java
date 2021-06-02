@@ -1,0 +1,12 @@
+import java.io.*;
+
+public class PrintWriterDemo {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("D:\\Temp\\org.txt"));
+        PrintWriter pw = new PrintWriter(new FileWriter("D:\\Temp\\dup.txt"));
+
+        br.lines().forEach(s->pw.println(s));
+        br.close();
+        pw.close();
+    }
+}
