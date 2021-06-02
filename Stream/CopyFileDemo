@@ -1,0 +1,28 @@
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class CopyFileDemo {
+    public static void main(String[] args) throws IOException {
+        String ifile= "D:\\Temp\\org.txt";
+        String ofile= "D:\\Temp\\dup.txt";
+
+        FileReader fr = new FileReader(ifile);
+        FileWriter fw = new FileWriter(ofile);
+        int c;
+
+        while ((c = fr.read()) != -1 )
+            fw.write(c);
+
+        fr.close();
+        fw.close();
+
+        /*  이때는 따로 close, throws IOException가 필요 없음
+        try(FileReader fr = new FileReader(ifile);  FileWriter fw = new FileWriter(ofile)){
+            int c;
+            while ((c = fr.read()) !=-1 )
+                fw.write(c);
+        }catch (IOException e){
+        }*/
+    }
+}
