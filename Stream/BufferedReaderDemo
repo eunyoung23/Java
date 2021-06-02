@@ -1,0 +1,17 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+
+public class BufferedReaderDemo {
+    public static void main(String[] args) {
+        String ifile= "D:\\Temp\\org.txt";
+        Charset cs = Charset.forName("ms949");
+        try(BufferedReader br = new BufferedReader(new FileReader(ifile,cs));){
+            br.lines().forEach(System.out::println); //br.lines(): 문자열로 구성된 stream을 반환
+            //br.lines().forEach(s-> System.out.println(s)); 도 가능함
+        }catch(IOException e){
+        }
+    }
+}
