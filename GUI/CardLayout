@@ -1,0 +1,39 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class SwingTest3 extends JFrame {
+    CardLayout l;
+    JPanel p;
+    public SwingTest3(){
+        setTitle("Frame7");
+
+        l = new CardLayout();
+        p=new JPanel(l);
+        JButton b1 =new JButton("버");
+        JButton b2 =new JButton("버튼");
+        JButton b3 =new JButton("버튼");
+        JButton b4 =new JButton("버튼더");
+        p.add("1",b1);
+        p.add("2",b2);
+        p.add("3",b3);
+        p.add("4",b4);
+        add(p);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300,300);
+        setVisible(true);
+    }
+
+    void rotate(){
+        while(true){
+            try{
+                Thread.sleep(500);
+            }catch (InterruptedException e){}
+            l.next(p);
+        }
+    }
+
+    public static void main(String[] args) {
+        new SwingTest3().rotate();
+    }
+}
