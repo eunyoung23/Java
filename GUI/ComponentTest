@@ -1,0 +1,51 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class ComponentTest extends JFrame {
+    public ComponentTest() {
+        setTitle("원 넓이 구하");
+
+        setLayout(new BorderLayout(10,10));
+        showNorth();
+        showCenter();
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300,105);
+        setVisible(true);
+    }
+
+    void showNorth(){
+        JPanel panel=new JPanel(new GridLayout(2,2));
+
+        JLabel l1=new JLabel("원의 반지름");
+        l1.setHorizontalAlignment(SwingConstants.CENTER);
+        JTextField t1 = new JTextField(10);
+        JLabel l2=new JLabel("원의 넓");
+        l2.setHorizontalAlignment(SwingConstants.CENTER);
+        JTextField t2 = new JTextField(10);
+        t2.setEditable(false);
+
+        panel.add(l1);
+        panel.add(t1);
+        panel.add(l2);
+        panel.add(t2);
+
+        add(panel,BorderLayout.NORTH);
+
+    }
+
+    void showCenter(){
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER,10,10));
+        JTextArea area = new JTextArea(30,20);
+        area.setText("이 영역에 원의 넓이를 \n계산하는 ...");
+        area.setEditable(false);
+        area.setForeground(Color.RED);
+
+        panel.add(area);
+        add(panel,BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        new ComponentTest();
+    }
+}
