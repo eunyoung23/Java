@@ -1,0 +1,25 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class SwingTest extends JFrame {
+
+    public SwingTest(){
+        setTitle("Frame4");
+
+        JPanel p=new JPanel();
+        JLabel l=new JLabel("Hello, button!");
+        JButton b =new JButton("버튼");
+        p.add(l);
+        p.add(b);
+        add(p);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setSize(300,100);
+        pack(); //딱 맞게 나옴
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new SwingTest();
+    }
+}
