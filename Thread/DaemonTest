@@ -1,0 +1,24 @@
+public class JoinTest {
+    public static void main(String[] args) {
+        JoinThread t = new JoinThread();
+        t.start();
+        //total 계산이 끝났때까지 mainthread에서 기다려 달
+        try {
+            t.join();
+        }catch (InterruptedException e){
+
+        }
+        System.out.println(t.total);
+    }
+}
+
+
+class JoinThread extends Thread{
+    int total;
+
+    @Override
+    public void run() {
+        for(int i=1; i<=100; i++)
+            total+=i;
+    }
+}
