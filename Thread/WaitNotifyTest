@@ -29,4 +29,4 @@ class SumThread extends Thread{
         }
     }
 }
-//0이 안나오게 하려면 wait와 notify를 적
+//0이 안나오게 하려면 wait와 notify를 적절하게 사용해야 함
