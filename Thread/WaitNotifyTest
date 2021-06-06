@@ -1,0 +1,32 @@
+public class WaitNotifyTest {
+    public static void main(String[] args) {
+        SumThread t = new SumThread();
+        t.start();
+
+        synchronized (t){    //t를 공유자원으로 함
+            try{
+                System.out.println("wating...");
+                t.wait();
+            }catch (InterruptedException e){
+
+            }
+       }
+
+        //계산하는 것은 sumthread에서, 출력하는 것은 main에서 하려고
+        System.out.println(t.total);
+    }
+}
+
+class SumThread extends Thread{
+    int total;
+
+    @Override
+    public void run() {
+        synchronized (this) {
+            for (int i = 0; i <= 100; i++)
+                total += i;
+            this.notify();
+        }
+    }
+}
+//0이 안나오게 하려면 wait와 notify를 적
