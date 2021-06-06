@@ -1,0 +1,38 @@
+import java.util.Random;
+
+public class SharedCar {
+    public synchronized void drive(String name, String where){
+        System.out.println(name + "님이 자동차에 탔습니");
+        Random r = new Random();
+        for(int i=0; i<r.nextInt(4); i++)
+            System.out.println(name+"님이 운전중입니");
+        System.out.println(name+"님이"+where+"에 도착했습다");
+    }
+}
+
+
+public class SynchroTest {
+    public static void main(String[] args) {
+        SharedCar car = new SharedCar();
+        new CarThread("김수정",car,"서울").start();
+        new CarThread("황진",car,"부산").start();
+        new CarThread("신사임",car,"광").start();
+    }
+}
+
+ class CarThread extends Thread{
+    private String who;
+    private SharedCar car;
+    private String where;
+
+     public CarThread(String who, SharedCar car, String where) {
+         this.who = who;
+         this.car = car;
+         this.where = where;
+     }
+
+     @Override
+     public void run() {
+         car.drive(who,where);
+     }
+ }
