@@ -1,0 +1,28 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class SwingTest2 extends JFrame{
+        public SwingTest2(){
+            setTitle("Frame4");
+
+            JPanel p=new JPanel();
+            p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+            JButton b1 =new JButton("버");
+            JButton b2 =new JButton("버튼");
+            JButton b3 =new JButton("버튼");
+            JButton b4 =new JButton("버튼더");
+            p.add(b1);
+            p.add(b2);
+            p.add(b3);
+            p.add(b4);
+            add(p);
+
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setSize(300,100);
+            setVisible(true);
+        }
+
+        public static void main(String[] args) {
+            new SwingTest2();
+        }
+}
