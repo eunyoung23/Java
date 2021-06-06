@@ -1,0 +1,28 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class SwingTest3 extends JFrame {
+    public SwingTest3(){
+        setTitle("Frame5");
+
+        JPanel p=new JPanel(new BorderLayout());
+        JButton b1 =new JButton("버");
+        JButton b2 =new JButton("버튼");
+        JButton b3 =new JButton("버튼");
+        JButton b4 =new JButton("버튼더");
+        p.add("East",b1);
+        p.add("West",b2); //이런방식이
+        p.add(b3,BorderLayout.NORTH);
+        p.add(b4,BorderLayout.SOUTH); //이런방식도 가
+        p.add(new JButton("중앙"),BorderLayout.CENTER);
+        add(p);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300,300);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new SwingTest3();
+    }
+}
