@@ -1,24 +1,23 @@
-public class JoinTest {
+public class DaemonTest {
     public static void main(String[] args) {
-        JoinThread t = new JoinThread();
-        t.start();
-        //total 계산이 끝났때까지 mainthread에서 기다려 달
-        try {
-            t.join();
+        Runnable task = () -> {
+            for(int i=0; i<3; i++){
+                try{
+                    Thread.sleep(100);
+                }catch(InterruptedException e){
+                }
+                System.out.println(Thread.currentThread().getName());
+            }
+        };
+
+        Thread t1=new Thread(task, "작업스레드");
+        //t1.setDaemon(true);
+        t1.start();
+
+        try{
+            Thread.sleep(100);
         }catch (InterruptedException e){
-
         }
-        System.out.println(t.total);
-    }
-}
-
-
-class JoinThread extends Thread{
-    int total;
-
-    @Override
-    public void run() {
-        for(int i=1; i<=100; i++)
-            total+=i;
+        System.out.println("종료");
     }
 }
